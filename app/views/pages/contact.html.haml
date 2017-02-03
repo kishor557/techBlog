@@ -1,0 +1,15 @@
+= content_for(:heading, "Contact Me")
+= content_for(:sub_heading, "Here")
+
+
+%article
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        %iframe{:allowtransparency => "true", :frameborder => "0", :height => "496", :scrolling => "no", :src => "https://kishor07557.wufoo.com/embed/z1rj2lky022y70g/", :style => "width:100%;border:none"}
+          %a{:href => "https://kishor07557.wufoo.com/forms/z1rj2lky022y70g/"} Fill out my Wufoo form!
+        #wuf-adv{:style => "font-family:inherit;font-size: small;color:#a7a7a7;text-align:center;display:block;"}
+          %span.notranslate
+            HTML Forms powered by
+            = succeed "." do
+              %a{:href => "http://www.wufoo.com"} Wufoo

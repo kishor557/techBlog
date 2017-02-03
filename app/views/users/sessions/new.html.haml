@@ -1,0 +1,14 @@
+.login{:align => "center"}
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    -# %p.notice= notice
+    -# %p.alert= alert
+    .input-group.input-group-lg{:style => "margin-top: 20px;"}
+      %span.input-group-addon
+        %i.ion-android-mail
+      = f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control"
+    .input-group.input-group-lg{:style => "margin-top: 10px;"}
+      %span.input-group-addon{:style => "width: 49px;border: 0px solid #ccc;border-radius: 0px;"}
+        %i.fa.fa-lock
+      = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+    %p.actions
+      = f.submit "Login", class: "btn btn-block", style: "margin-top:15px;width:60%;height:40px;background-color: #50e3c2;"

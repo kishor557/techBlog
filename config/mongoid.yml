@@ -1,0 +1,7 @@
+development:
+  clients:
+    default:
+      database: tech_blog_dev
+      hosts:
+        - localhost:27017
+

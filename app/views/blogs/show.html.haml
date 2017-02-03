@@ -1,0 +1,32 @@
+= content_for(:heading, @blog.title)
+= content_for(:sub_heading, "Go through the content below...")
+%article
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        = @blog.content.html_safe
+%hr/
+
+
+:javascript
+
+  var start;
+  var now = new Date();
+
+  
+  $(document).ready(function() {
+    start = now.getTime();
+    console.log(start);
+    
+  });
+     
+   $(window).unload(function() {
+        end = now.getTime();
+        console.log(end);
+        $.ajax({ 
+          url: "/blogs/#{@blog.id}/update_view_count",
+          data: {'timeSpent': end - start}
+        })
+    });
+  
+ 

@@ -1,0 +1,13 @@
+#sidebar-wrapper
+  %ul.sidebar-nav
+    %li.sidebar-brand
+      %a{:href => "#"}
+        TechBlog
+    %li
+      %a{:href => admin_dashboard_index_path} Dashboard
+    %li
+      %a{:href => admin_blogs_path} Blogs
+    - if user_signed_in?  
+      %li
+        %a{:href => destroy_user_session_path, method: :delete} Logout
+           

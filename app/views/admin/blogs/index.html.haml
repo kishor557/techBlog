@@ -1,0 +1,24 @@
+.container-fluid
+  .row
+    .col-lg-12
+      %div
+        %h2 Blogs
+        = link_to "<span class='glyphicon glyphicon-plus' aria-hidden='true' style='font-weight:bold;font-size:21px;'></span> New".html_safe, new_admin_blog_path, class: "btn btn-success", style: "float:right;margin-top:-41px;"
+      %hr
+      %table.table.table-hover
+        %thead
+          %tr
+            %th Title
+            %th Content
+            %th
+        %tbody
+          - @blogs.each do |post|
+            %tr
+              %td= post.title
+              %td= post.content
+              %td
+                = link_to "Edit", edit_admin_blog_path(post), class: "btn btn-default"
+                = link_to "Remove", admin_blog_path(post), method: :delete, class: "btn btn-danger" 
+                
+                
+      = will_paginate @blogs   

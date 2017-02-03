@@ -1,0 +1,23 @@
+= content_for(:heading, "Venkata Kishor M")
+= content_for(:sub_heading, "A Professional Ruby on Rails Guy.")
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      - @blogs.each do |blog|
+        .post-preview
+          %a{:href => blog_path(blog)}
+            %h2.post-title
+              = blog.title
+              
+          %p.post-meta
+            Posted by
+            %a{:href => "#"}= blog.user.email
+            on
+            = blog.created_at.strftime("%B %d, %Y")
+        %hr/
+      
+     
+      %ul.pager
+        %li.next
+          = will_paginate @blogs
+%hr/
