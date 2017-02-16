@@ -42,12 +42,13 @@ gem "will_paginate_mongoid"
 
 gem 'ckeditor', '4.1.3'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm', require: false  
 end
 
 group :development do
