@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Index:
+  = @comment.index
+%p
+  %b New:
+  = @comment.new
+%p
+  %b Create:
+  = @comment.create
+%p
+  %b Edit:
+  = @comment.edit
+%p
+  %b Update:
+  = @comment.update
+%p
+  %b Destroy:
+  = @comment.destroy
+
+= link_to 'Edit', edit_comment_path(@comment)
+\|
+= link_to 'Back', comments_path

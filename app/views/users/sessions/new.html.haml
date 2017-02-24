@@ -1,14 +1,19 @@
-.login{:align => "center"}
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    -# %p.notice= notice
-    -# %p.alert= alert
-    .input-group.input-group-lg{:style => "margin-top: 20px;"}
-      %span.input-group-addon
-        %i.ion-android-mail
-      = f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control"
-    .input-group.input-group-lg{:style => "margin-top: 10px;"}
-      %span.input-group-addon{:style => "width: 49px;border: 0px solid #ccc;border-radius: 0px;"}
-        %i.fa.fa-lock
-      = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
-    %p.actions
-      = f.submit "Login", class: "btn btn-block", style: "margin-top:15px;width:60%;height:40px;background-color: #50e3c2;"
+.container
+  .card.card-container
+    = image_tag("kishore.png", id: "profile-img", class: "profile-img-card")
+    %p#profile-name.profile-name-card
+      Hey Kishore..
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f|
+      %span#reauth-email.reauth-email
+        = flash[:alert]
+      = f.email_field :email, autofocus: true, placeholder: "Email address", class: "form-control", id: "inputEmail", required: true
+      = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control", id: "inputPassword", required: true
+      #remember.checkbox
+        %label
+          %input{:type => "checkbox", :value => "remember-me"}/
+          Remember me
+      = f.submit "Sign in", class: "btn btn-lg btn-primary btn-block btn-signin"
+    %a.forgot-password{:href => new_password_path(resource_name)}
+      Forgot the password?
+      
+= render 'users/shared/style'

@@ -1,10 +1,16 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "users/shared/links"
+.container
+  .card.card-container
+    %h3{style: "margin: 10px 0px 20px 0px;text-align: center;"} Forgot your password?
+    = image_tag("kishore2.png", id: "profile-img", class: "profile-img-card")
+    %p#profile-name.profile-name-card
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      %span#reauth-email.reauth-email
+        = flash[:alert]
+      = f.email_field :email, autofocus: true, placeholder: "Email address", class: "form-control", id: "inputEmail", required: true
+      %br
+      = f.submit "Send me reset password instructions", class: "btn btn-lg btn-primary btn-block btn-signin"
+    %a.forgot-password{:href => new_session_path(resource_name)}
+      Want to Sign in?
+      
+      
+= render 'users/shared/style'

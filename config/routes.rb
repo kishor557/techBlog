@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get 'contact/me' => "pages#contact"
   
   resources :blogs, only: [:index, :show] do
-   member do
-    get 'update_view_count'
-   end
+    member do
+     get 'update_view_count'
+    end
+    resources :comments
   end
   
   root to: "blogs#index"
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
      # Directs /admin/products/* to Admin::ProductsController
      # (app/controllers/admin/products_controller.rb)
      resources :blogs do
+       resources :comments, except: [:new, :create]
      end
      resources :dashboard, only: [:index]
    end

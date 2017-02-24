@@ -1,0 +1,41 @@
+%h3 
+  Comments
+  (
+  = @blog.comments.count rescue 0
+  )
+%hr
+
+.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+  .new_comment
+    %h4 Please comment here
+    = form_for @comment, url: blog_comments_path(@blog), html: {method: "POST", remote: "true", class: "form-horizontal"} do |f|
+      .form-group
+        %label.col-sm-2.control-label Your Name
+        .col-sm-10
+          = f.text_field :name, placeholder: "Please enter your name", class: "form-control"
+      .form-group
+        %label.col-sm-2.control-label Your Comments
+        .col-sm-10
+          = f.text_area :desc, placeholder: "Enter your comments here...", rows: "6", class: "form-control"
+      
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          = f.submit "Submit Comment".html_safe, class: "btn btn-success btn-circle text-uppercase"
+  
+  %br
+  %br
+  %section.comments_list
+    - @blog.comments.order("created_at DESC").each do |comment|
+      %article.comment
+        %a.comment-img{:href => "#non"}
+          = image_tag("avatar_2x.png", height: "50", width: "50", title: "#{comment.name}")
+        .comment-body
+          .text
+            %p= comment.desc.html_safe rescue nil
+          %p.attribution
+            by
+            %a{:href => "#non"}
+              = comment.name.present? ? comment.name.titleize : "Anonymous"
+            at
+            = comment.created_at #.strftime("%H:%M %d %b, %Y")
+

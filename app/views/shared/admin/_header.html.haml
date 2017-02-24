@@ -9,5 +9,5 @@
       %a{:href => admin_blogs_path} Blogs
     - if user_signed_in?  
       %li
-        %a{:href => destroy_user_session_path, method: :delete} Logout
+        = link_to "Logout", destroy_user_session_path, method: "delete"
            

@@ -1,0 +1,17 @@
+%div
+  %h3 Edit Comment
+  = link_to "Back", admin_blog_comments_path(@blog), class: "btn btn-primary", style: "float:right;margin-top:-41px;"
+%hr
+= form_for @comment, url: admin_blog_comment_path(@blog, @comment), html: {class: "form-horizontal", method: "PUT"} do |f|
+  .form-group
+    %label.col-sm-2.control-label{:for => "Title"} *Name
+    .col-sm-10
+      = f.text_field :name, placeholder: "Commentor name", class: "form-control"
+  .form-group
+    %label.col-sm-2.control-label *Content
+    .col-sm-10
+      = f.cktext_area :desc, placeholder: "Comments", class: "form-control"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-primary{:type => "submit"} Update
+      

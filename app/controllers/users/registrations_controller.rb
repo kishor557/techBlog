@@ -1,4 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  layout 'admin'
+
   def edit
     super
   end

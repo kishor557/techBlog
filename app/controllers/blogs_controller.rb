@@ -2,12 +2,18 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @blogs = Blog.all.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+    scope = Blog
+    if params[:tag].present?
+      scope = scope.where(tags: params[:tag].titleize)
+    end  
+    @blogs = scope.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
   end
   
   
   def show
-      @blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])
+    @comment = Comment.new  
+    @blog_comments = @blog.comments
   end
   
   def update_view_count

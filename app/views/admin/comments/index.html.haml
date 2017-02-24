@@ -1,0 +1,32 @@
+.container-fluid
+  .row
+    .col-lg-12
+      %div
+        %h2 Blog Comments
+        = link_to "Back", admin_blogs_path, class: "btn btn-primary", style: "float:right;margin-top:-41px;"
+      %hr
+      %h4
+        Blog Title:
+        = link_to @blog.title, admin_blog_path(@blog)
+      %table.table.table-hover
+        %thead
+          %tr
+            %th Commentor Name
+            %th Comment
+            %th Posted At
+            %th
+        %tbody
+          - @comments.each do |comment|
+            %tr
+              %td= comment.name
+              %td= comment.desc
+              %td
+                = time_ago_in_words(comment.created_at) 
+                ago
+              %td
+                = link_to "View", admin_blog_comment_path(@blog, comment), class: "btn btn-primary"
+                = link_to "Edit", edit_admin_blog_comment_path(@blog, comment), class: "btn btn-default"
+                = link_to "Remove", admin_blog_comment_path(@blog, comment), method: :delete, class: "btn btn-danger" 
+                
+                
+      = will_paginate @comments   

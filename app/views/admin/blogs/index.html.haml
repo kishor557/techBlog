@@ -9,13 +9,21 @@
         %thead
           %tr
             %th Title
-            %th Content
+            %th Created At
+            %th Comments
+            %th Views
+            %th Likes/Dislikes
             %th
         %tbody
           - @blogs.each do |post|
             %tr
-              %td= post.title
-              %td= post.content
+              %td= link_to post.title, admin_blog_path(post)
+              %td
+                = time_ago_in_words(post.created_at) 
+                ago
+              %td= link_to post.comments.count, admin_blog_comments_path(post) rescue 0
+              %td= link_to post.views.count, "#" rescue 0
+              %td= 0
               %td
                 = link_to "Edit", edit_admin_blog_path(post), class: "btn btn-default"
                 = link_to "Remove", admin_blog_path(post), method: :delete, class: "btn btn-danger" 

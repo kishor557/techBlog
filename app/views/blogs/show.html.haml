@@ -5,9 +5,16 @@
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
         = @blog.content.html_safe
-%hr/
+        %br
+        .tags
+          - @blog.tags.each do |tag|
+            = link_to tag, blogs_path(tag: tag), class: "btn", style: "color:#fff;padding: 6px 25px;background:grey;"
+        
+    %br            
+    .row.comments
+      = render "comments", blog: @blog, comment: @comment
 
-
+        
 :javascript
 
   var start;
