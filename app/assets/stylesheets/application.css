@@ -12,4 +12,25 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
+ *= require bootstrap-datetimepicker
  */
+ 
+ .scrollToTop {
+    margin: 0;
+    position: fixed;
+    bottom: 8.5%;
+    right: 0;
+    z-index: 100;
+    display: none;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: black;//rgba(100, 193, 151, .9);
+    padding: 10px 20px 10px 10px;
+    font-size: 12px;
+}
+.scrollToTop:hover {
+    background-color: #000; //rgba(100, 193, 151, 1);
+    color: #ffffff;
+    text-decoration: none;
+}

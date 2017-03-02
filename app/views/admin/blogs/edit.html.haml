@@ -15,6 +15,11 @@
       = f.error_message_for(:content)
 
   .form-group
+    %label.col-sm-2.control-label Posted At
+    .col-sm-10
+      = f.text_field :created_at, placeholder: "Posted At", class: "form-control", id: 'datetimepicker1', 'data-date-format': "YYYY/MM/DD hh:mm A"
+
+  .form-group
     %label.col-sm-2.control-label Tags
     .col-sm-10
       = f.text_field :tags_list, placeholder: "Tags", class: "form-control"
@@ -28,3 +33,9 @@
   .form-group
     .col-sm-offset-2.col-sm-10
       %button.btn.btn-primary{:type => "submit"} Save
+      
+      
+:javascript
+  $(function () {
+    $('#datetimepicker1').datetimepicker({sideBySide: true});
+  });      

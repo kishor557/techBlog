@@ -7,6 +7,8 @@
         = @blog.content.html_safe
         %br
         .tags
+          %h5 Tags:
+          %hr
           - @blog.tags.each do |tag|
             = link_to tag, blogs_path(tag: tag), class: "btn", style: "color:#fff;padding: 6px 25px;background:grey;"
         
@@ -14,17 +16,19 @@
     .row.comments
       = render "comments", blog: @blog, comment: @comment
 
+%a.backtohome{:href => "/"}
+  %i.fa.fa-angle-up
+  << Back to Home  
+
         
 :javascript
 
   var start;
   var now = new Date();
 
-  
   $(document).ready(function() {
     start = now.getTime();
     console.log(start);
-    
   });
      
    $(window).unload(function() {

@@ -13,6 +13,38 @@ $brand-danger: red;
 $bg-danger: red;
 $gray-base: white;
 
+.backtohome {
+  margin: 0;
+  position: fixed;
+  top: 25%;
+  right: -106px;
+  z-index: 100;
+  display: block;
+  text-decoration: none !important;
+  color: #fff !important;
+  background-color: #000;
+  padding: 10px 20px 10px 10px;
+  font-size: 12px;
+    -webkit-transition: .1s all;   
+    -webkit-transition-delay: 1s; 
+    -moz-transition: .1s all;   
+    -moz-transition-delay: 1s; 
+    -ms-transition: .1s all;   
+    -ms-transition-delay: 1s; 
+    -o-transition: .1s all;   
+    -o-transition-delay: 1s; 
+    transition: .1s all;   
+    transition-delay: 1s; 
+  &:hover {
+    right: 0px;
+      -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+  }
+}
+
 .has-signup-error, .field_with_errors{
     .signup-error{
       //background: transparent;
