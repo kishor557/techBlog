@@ -40,7 +40,7 @@ gem 'mongoid_search'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "will_paginate_mongoid"
 
-gem 'ckeditor', '4.1.3'
+gem 'ckeditor'#, '4.1.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

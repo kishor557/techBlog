@@ -1,5 +1,5 @@
 = content_for(:heading, @blog.title)
-= content_for(:sub_heading, "Go through the content below...")
+= content_for(:sub_heading, "Posted #{time_ago_in_words(@blog.created_at)} ago")
 %article
   .container
     .row
