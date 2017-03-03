@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
     if params[:tag].present?
       scope = scope.where(tags: params[:tag].titleize)
     end  
-    @blogs = scope.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+    @blogs = scope.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
   end
   
   

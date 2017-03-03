@@ -3,7 +3,7 @@ class Admin::BlogsController < ApplicationController
   layout 'admin'
   
   def index
-    @blogs = Blog.all.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+    @blogs = Blog.all.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
   end
   
   def new
