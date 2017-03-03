@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :update_like_or_dislike_count]
   
   def index
     scope = Blog
@@ -11,13 +11,36 @@ class BlogsController < ApplicationController
   
   
   def show
+    session[:viewed] ||= []
     @blog = Blog.find(params[:id])
     @comment = Comment.new  
     @blog_comments = @blog.comments
+    unless session[:viewed].include?(@blog.id.to_s)
+      session[:viewed] << @blog.id.to_s
+      @blog.update_attribute(:views, (@blog.views + 1))
+    end  
   end
   
-  def update_view_count
+  def update_like_or_dislike_count
     @blog = Blog.find(params[:id])
+    session[:liked] ||= []
+    session[:disliked] ||= []
+    case params[:type]
+      when "like"
+        unless session[:liked].include?(@blog.id.to_s)
+          session[:liked] << @blog.id.to_s
+          @blog.update_attribute(:likes, (@blog.likes + 1))
+        end  
+      when "dislike"
+        unless session[:disliked].include?(@blog.id.to_s)
+          session[:disliked] << @blog.id.to_s
+          @blog.update_attribute(:dislikes, (@blog.dislikes + 1))
+        end 
+    end
+    respond_to do |format|
+      format.html { redirect_to blog_path(@blog) }
+      format.js { render layout: false }
+    end
   end
   
   

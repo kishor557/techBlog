@@ -1,5 +1,6 @@
 = content_for(:heading, @blog.title)
 = content_for(:sub_heading, "Posted #{time_ago_in_words(@blog.created_at)} ago")
+= content_for(:views, "Page Views: #{@blog.views}")
 
 %article
   .container
@@ -20,26 +21,9 @@
 
 %a.backtohome{:href => "/"}
   %i.fa.fa-angle-up
-  << Back to Home  
+  << Back to Home 
 
-        
-:javascript
-
-  var start;
-  var now = new Date();
-
-  $(document).ready(function() {
-    start = now.getTime();
-    console.log(start);
-  });
-     
-   $(window).unload(function() {
-        end = now.getTime();
-        console.log(end);
-        $.ajax({ 
-          url: "/blogs/#{@blog.id}/update_view_count",
-          data: {'timeSpent': end - start}
-        })
-    });
-  
  
+.likemenu
+  = render 'likemenu', blog: @blog
+

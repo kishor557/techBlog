@@ -1,3 +1,23 @@
+@mixin slide($d) {
+  -webkit-transition: $d all;   
+  -webkit-transition-delay: $d; 
+  -moz-transition: $d all;   
+  -moz-transition-delay: $d; 
+  -ms-transition: $d all;   
+  -ms-transition-delay: $d; 
+  -o-transition: $d all;   
+  -o-transition-delay: $d; 
+  transition: $d all;   
+  transition-delay: $d; 
+}
+@mixin slide-delay($d) {
+  -webkit-transition-delay: $d;
+  -moz-transition-delay: $d;
+  -ms-transition-delay: $d;
+  -o-transition-delay: $d;
+  transition-delay: $d;
+}
+
 .blogs_index {
   background-image: url('home-bg.jpg') !important;
 }
@@ -8,6 +28,8 @@
 .pages_about_me, .pages_contact {
   background-image: url('about-bg.jpg') !important;
 }
+
+
 
 $brand-danger: red;
 $bg-danger: red;
@@ -21,6 +43,61 @@ $gray-base: white;
   }
 }
 
+.likemenu {
+  margin: 0;
+  position: fixed;
+  top: 40%;
+  right: -46px;
+  z-index: 100;
+  display: block;
+  width: 100px;
+  padding: 10px; 
+  height: 115px;
+  border: 1px solid #ccc; 
+  border-right-width: 0px;
+  background: #fff;
+  cursor: pointer;
+  @include slide(1s);
+  &:hover {
+    right: 0;
+    @include slide(0s);
+  }
+  
+  p {
+    margin: 0px 0 7px 0;
+    cursor: pointer;
+    a {
+      display: inline-block;
+      cursor: pointer;
+      width: 40px;
+      height: 42px;
+      text-decoration: none;
+      
+      span {
+        margin-top: 10px;
+        display: inline-block;
+        font-size: 20px;
+        margin-left: 42px;
+        color: #000;
+      }
+      
+      &.like {
+        background: url("like.png") no-repeat;
+      }
+      &.dislike {
+        background: url("dislike.png") no-repeat;
+      }
+    }
+  }  
+}
+
+.site-heading .views {
+  margin-top: 9px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+
 .backtohome {
   margin: 0;
   position: fixed;
@@ -33,23 +110,10 @@ $gray-base: white;
   background-color: #000;
   padding: 10px 20px 10px 10px;
   font-size: 12px;
-    -webkit-transition: .1s all;   
-    -webkit-transition-delay: 1s; 
-    -moz-transition: .1s all;   
-    -moz-transition-delay: 1s; 
-    -ms-transition: .1s all;   
-    -ms-transition-delay: 1s; 
-    -o-transition: .1s all;   
-    -o-transition-delay: 1s; 
-    transition: .1s all;   
-    transition-delay: 1s; 
+  @include slide(1s);
   &:hover {
     right: 0px;
-      -webkit-transition-delay: 0s;
-    -moz-transition-delay: 0s;
-    -ms-transition-delay: 0s;
-    -o-transition-delay: 0s;
-    transition-delay: 0s;
+    @include slide-delay(0s);
   }
 }
 

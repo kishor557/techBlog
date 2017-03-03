@@ -22,8 +22,9 @@
                 = time_ago_in_words(post.created_at) 
                 ago
               %td= link_to post.comments.count, admin_blog_comments_path(post) rescue 0
-              %td= link_to post.views.count, "#" rescue 0
-              %td= 0
+              %td= post.views
+              %td
+                #{post.likes}&nbsp;/&nbsp;#{post.dislikes}
               %td
                 = link_to "Edit", edit_admin_blog_path(post), class: "btn btn-default"
                 = link_to "Remove", admin_blog_path(post), method: :delete, class: "btn btn-danger" 

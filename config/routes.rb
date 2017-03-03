@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   resources :blogs, only: [:index, :show] do
     member do
-     get 'update_view_count'
+     get 'update_like_or_dislike_count'
     end
     resources :comments
   end

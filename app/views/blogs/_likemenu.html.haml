@@ -1,0 +1,2 @@
+%p= link_to "<span>(#{@blog.likes})</span>".html_safe, update_like_or_dislike_count_blog_path(@blog, type: "like"), remote: true, class: "like"
+%p= link_to "<span>(#{@blog.dislikes})</span>".html_safe, update_like_or_dislike_count_blog_path(@blog, type: "dislike"), remote: true, class: "dislike"
