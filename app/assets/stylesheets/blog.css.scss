@@ -13,6 +13,14 @@ $brand-danger: red;
 $bg-danger: red;
 $gray-base: white;
 
+.blog-content, .comments, .comments p {
+  font-size: 14px;
+  
+  p, p span, span, pre, pre span, code, em {
+    font-size: 14px !important;
+  }
+}
+
 .backtohome {
   margin: 0;
   position: fixed;

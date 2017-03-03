@@ -1,10 +1,12 @@
 = content_for(:heading, @blog.title)
 = content_for(:sub_heading, "Posted #{time_ago_in_words(@blog.created_at)} ago")
+
 %article
   .container
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-        = @blog.content.html_safe
+        .blog-content
+          = @blog.content.html_safe
         %br
         .tags
           %h5 Tags:
