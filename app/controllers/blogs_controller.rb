@@ -18,7 +18,8 @@ class BlogsController < ApplicationController
     unless session[:viewed].include?(@blog.id.to_s)
       session[:viewed] << @blog.id.to_s
       @blog.update_attribute(:views, (@blog.views + 1))
-    end  
+    end
+    render layout: "blog"
   end
   
   def update_like_or_dislike_count

@@ -4,10 +4,12 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %meta{:content => "I'm a Ruby on Rails techie and develops and deploys web applications and this blog will helpful for the guys who are interested in ROR.", :name => "description"}/
-    %meta{:content => "Ruby on Rails, Ruby, Rails, Ruby on Rails techie, develop, deploy, web applications, web services, blog, ROR, techblog, Ror blog", :name => "keywords"}/
+    %meta{:content => "#{@blog.title}", :name => "description"}/
     %meta{:content => "Kishore", :name => "author"}/
-    %title TechBlog | Kishore
+    %title 
+      = @blog.title
+      |
+      TechBlog | Kishore
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags

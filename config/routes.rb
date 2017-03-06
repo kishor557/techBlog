@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'about/:name' => "pages#about_me", as: "about_me"
   get 'contact/me' => "pages#contact"
   
+  get "/login", to: redirect("/admin/sign_in")
+  get "/admin", to: redirect("/admin/sign_in")
+  
   resources :blogs, only: [:index, :show] do
     member do
      get 'update_like_or_dislike_count'
