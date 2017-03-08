@@ -9,11 +9,12 @@
         .blog-content
           = @blog.content.html_safe
         %br
-        .tags
-          %h5 Tags:
-          %hr
-          - @blog.tags.each do |tag|
-            = link_to tag, blogs_path(tag: tag), class: "btn", style: "color:#fff;padding: 6px 25px;background:grey;"
+        - if @blog.tags.present?
+          .tags
+            %h5 Tags:
+            %hr
+            - @blog.tags.each do |tag|
+              = link_to tag, blogs_path(tag: tag), class: "btn", style: "color:#fff;padding: 6px 25px;background:grey;"
         
     %br            
     .row.comments

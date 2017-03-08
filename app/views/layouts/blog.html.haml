@@ -17,6 +17,7 @@
     %link{:href => "https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800", :rel => "stylesheet", :type => "text/css"}/
   %body
+    #fb-root
     = render 'shared/navbar'
     = yield
     = render 'shared/footer'
@@ -24,3 +25,13 @@
 %a.scrollToTop{:href => "#"}
   %i.fa.fa-angle-up
   Back to top    
+  
+  
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=419498948061602";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));  

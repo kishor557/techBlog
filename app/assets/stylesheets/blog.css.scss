@@ -22,8 +22,7 @@
   background-image: url('home-bg.jpg') !important;
 }
 .blogs_show {
-  background: green !important;
-  opacity: 0.6;
+  background: rgba(0,128,0,0.65) !important
 }
 .pages_about_me, .pages_contact {
   background-image: url('about-bg.jpg') !important;
@@ -271,3 +270,20 @@ p {
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
 }  
+
+.dataTables_filter input  {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}

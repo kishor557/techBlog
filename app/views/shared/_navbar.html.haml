@@ -24,4 +24,8 @@
           %h1= yield(:heading)
           %hr.small/
           %span.subheading= yield(:sub_heading)
-          %span.views= yield(:views)       
+          %span.views= yield(:views)
+          - if action_name == "show"
+            .div{style: "padding-top:20px;"}
+              .fb-share-button{"data-href" => "#{request.fullpath}", "data-layout" => "button_count", "data-mobile-iframe" => "true", "data-size" => "large"}
+                %a.fb-xfbml-parse-ignore{:href => "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftechblog-kishore.com%2Fblogs%2F58ba35927ccf2f3486d0dcb1&src=sdkpreparse", :target => "_blank"} Share
